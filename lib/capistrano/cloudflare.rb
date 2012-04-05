@@ -1,7 +1,7 @@
 require "capistrano/cloudflare/version"
 
 module Capistrano
-  module Cloudflare
+  module CloudFlare
     # Your code goes here...
   end
 end
