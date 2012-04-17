@@ -11,4 +11,5 @@ RSpec.configure do |config|
 end
 
 require 'capistrano'
+require 'capistrano-spec'
 require 'capistrano/cloudflare'
