@@ -16,7 +16,9 @@ Gem::Specification.new do |gem|
   gem.version       = Capistrano::CloudFlare::VERSION
 
   gem.add_dependency 'capistrano', '>= 2.0'
+  gem.add_dependency 'json'
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'capistrano-spec'
+  gem.add_development_dependency 'webmock'
 end

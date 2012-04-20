@@ -4,9 +4,13 @@ describe Capistrano::CloudFlare do
   before do
     @configuration = Capistrano::Configuration.new
     Capistrano::CloudFlare.load_into(@configuration)
-    @options = { :domain_name => 'example.com',
-                 :email       => 'me@example.com',
-                 :api_key     => 'F' }
+    @options = { :domain  => 'example.com',
+                 :email   => 'me@example.com',
+                 :api_key => 'F' }
+    stub_request(:post, 'https://www.cloudflare.com/api_json.html').to_return(
+      :status => 200, :body => '{}'
+    )
+
   end
 
   it { described_class.should be_a Module }
@@ -20,6 +24,7 @@ describe Capistrano::CloudFlare do
   end
 
   specify 'send_request' do
-    described_class.send_request(@options)
+    # TODO: Improve testing here
+    described_class.send_request(@options).should be_a_kind_of(Hash)
   end
 end

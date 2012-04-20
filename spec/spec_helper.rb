@@ -10,6 +10,10 @@ RSpec.configure do |config|
   config.filter_run :focus
 end
 
+
 require 'capistrano'
 require 'capistrano-spec'
 require 'capistrano/cloudflare'
+require 'webmock/rspec'
+
+WebMock.disable_net_connect!(:allow_localhost => true)
