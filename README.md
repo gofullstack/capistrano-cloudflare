@@ -36,10 +36,6 @@ The following Capistrano tasks should now be available:
 
 * `cloudflare:cache:purge`
 
-## Requirements
-
-The `curl` command must be installed on the remote server. Should work with Capistrano 2 or newer and Ruby >= 1.8.7.
-
 ## Contributing
 
 1. Fork it
