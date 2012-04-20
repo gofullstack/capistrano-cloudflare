@@ -1,4 +1,4 @@
-# Capistrano CloudFlare [![Build Status](https://secure.travis-ci.org/cramerdev/capistrano-cloudflare.png)
+# Capistrano CloudFlare ![Build Status](https://secure.travis-ci.org/cramerdev/capistrano-cloudflare.png)
 
 [CloudFlare](http://www.cloudflare.com/) is a service that protects and speeds up websites. Capistrano Cloudflare provides [Capistrano](https://github.com/capistrano/capistrano/wiki/Documentation-v2.x) tasks to update your CloudFlare settings.
 
