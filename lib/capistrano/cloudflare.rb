@@ -33,7 +33,7 @@ module Capistrano
               if response['result'] == 'success'
                 logger.info("Purged CloudFlare cache for #{cloudflare_options[:domain]}")
               else
-                logger.error("CloudFlare cache purge failed. Reason: #{response['msg'] || 'unknown'}")
+                logger.info("CloudFlare cache purge failed. Reason: #{response['msg'] || 'unknown.'}")
               end
             end
           end
