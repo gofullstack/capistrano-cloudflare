@@ -2,6 +2,7 @@ require 'capistrano'
 require 'capistrano/cloudflare/version'
 require 'json'
 require 'net/http'
+require 'rake'
 
 module Capistrano
   module CloudFlare
