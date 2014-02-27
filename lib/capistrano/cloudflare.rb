@@ -2,6 +2,7 @@ require 'capistrano'
 require 'capistrano/cloudflare/version'
 require 'json'
 require 'net/http'
+require 'rake'
 
 module Capistrano
   module CloudFlare
@@ -20,30 +21,7 @@ module Capistrano
       })
       response = JSON.parse(http.request(request).body)
     end
-
-    def self.load_into(configuration)
-      configuration.set :capistrano_cloudflare, self
-      configuration.load do
-        namespace :cloudflare do
-          namespace :cache do
-            desc "Purge the CloudFlare cache"
-            task :purge do
-              raise unless fetch(:cloudflare_options).respond_to?(:[])
-              response = capistrano_cloudflare.send_request(cloudflare_options)
-              if response['result'] == 'success'
-                logger.info("Purged CloudFlare cache for #{cloudflare_options[:domain]}")
-              else
-                logger.info("CloudFlare cache purge failed. Reason: #{response['msg'] || 'unknown.'}")
-              end
-            end
-          end
-        end
-
-      end
-    end
   end
 end
 
-if Capistrano::Configuration.instance
-  Capistrano::CloudFlare.load_into(Capistrano::Configuration.instance)
-end
+load File.expand_path('../tasks/cloudflare.rake', __FILE__)

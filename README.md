@@ -2,6 +2,8 @@
 
 [CloudFlare](http://www.cloudflare.com/) is a service that protects and speeds up websites. Capistrano Cloudflare provides [Capistrano](https://github.com/capistrano/capistrano/wiki/Documentation-v2.x) tasks to update your CloudFlare settings.
 
+Capistrano CloudFlare Version 1.0 and above supports the new Capistrano v3 API. For compatbility with Capistrano v2, please use version `0.0.2`.
+
 Currently only cache purging is supported.
 
 ## Installation
