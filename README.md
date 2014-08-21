@@ -26,7 +26,7 @@ When using Capistrano, add:
 
     require 'capistrano/cloudflare'
 
-    set, :cloudflare_options, {
+    set :cloudflare_options, {
         :domain  => 'example.com',
         :email   => 'me@example.com',
         :api_key => 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'
