@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "capistrano-cloudflare"
   gem.require_paths = ["lib"]
   gem.version       = Capistrano::CloudFlare::VERSION
+  gem.required_ruby_version = '>= 2.0.0'
 
   gem.add_dependency 'capistrano', '>= 2.0'
   gem.add_dependency 'json'
