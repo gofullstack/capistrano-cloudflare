@@ -7,17 +7,17 @@ require 'rake'
 module Capistrano
   module CloudFlare
     def self.send_request(options = {})
-      uri = URI('https://www.cloudflare.com/api_json.html')
+      zone = options[:zone]
+      uri = URI("https://api.cloudflare.com/client/v4/zones/#{zone}/purge_cache")
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
-      request = Net::HTTP::Post.new(uri.request_uri)
-      request.set_form_data({
-        :v     => 1,
-        :a     => 'fpurge_ts',
-        :z     => options[:domain],
-        :tkn   => options[:api_key],
-        :email => options[:email]
+      request = Net::HTTP::Delete.new(uri.request_uri)
+      request['X-Auth-Email'] = options[:email]
+      request['X-Auth-Key'] = options[:api_key]
 
+
+      request.set_form_data({
+        :purge_everything => true,
       })
       response = JSON.parse(http.request(request).body)
     end
