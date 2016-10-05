@@ -2,8 +2,8 @@
 require File.expand_path('../lib/capistrano/cloudflare/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Nathan L Smith"]
-  gem.email         = ["nlloyds@gmail.com"]
+  gem.authors       = ["Nathan L Smith", "Tristan D Havelick"]
+  gem.email         = ["nlloyds@gmail.com", "tristan@havelick.com"]
   gem.description   = %q{Capistrano extensions for CloudFlare}
   gem.summary       = %q{Lets you make CloudFlare API calls when deploying with Capistrano.}
   gem.homepage      = "https://github.com/cramerdev/capistrano-cloudflare"
@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "capistrano-cloudflare"
   gem.require_paths = ["lib"]
   gem.version       = Capistrano::CloudFlare::VERSION
+  gem.required_ruby_version = '>= 2.0.0'
 
   gem.add_dependency 'capistrano', '>= 2.0'
   gem.add_dependency 'json'

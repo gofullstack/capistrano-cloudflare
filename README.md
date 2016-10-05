@@ -2,7 +2,9 @@
 
 [CloudFlare](http://www.cloudflare.com/) is a service that protects and speeds up websites. Capistrano Cloudflare provides [Capistrano](https://github.com/capistrano/capistrano/wiki/Documentation-v2.x) tasks to update your CloudFlare settings.
 
-Capistrano CloudFlare Version 1.0 and above supports the new Capistrano v3 API. For compatbility with Capistrano v2, please use version `0.0.2`.
+Capistrano CloudFlare Version 2.0 and above supports the new Capistrano v3 API. For compatbility with Capistrano v2, please use version `0.0.2`.
+
+This fork of the library supports CloudFlare's version 4 API
 
 Currently only cache purging is supported.
 
@@ -27,12 +29,12 @@ When using Capistrano, add:
     require 'capistrano/cloudflare'
 
     set :cloudflare_options, {
-        :domain  => 'example.com',
+        :zone  => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
         :email   => 'me@example.com',
         :api_key => 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'
     }
 
-to config/deploy.rb. These options can be found in your [CloudFlare account seetings](https://www.cloudflare.com/my-account).
+to config/deploy.rb. Your api key can be found in your [CloudFlare account seetings](https://www.cloudflare.com/my-account). Your Zone can be determined by called the CloudFlare API [List Zones Endpoint](https://api.cloudflare.com/#zone-list-zones)
 
 The following Capistrano tasks should now be available:
 
